@@ -1,10 +1,16 @@
+#ITERATIVE
 def factorial(n):
-    a = n
-    i = 1
     for i in range(1, n):
-        a = a*i
-    return a
+        n = n*i
+    return n
+
+#RECURSIVE
+#def factorial(n):
+#    if n == 1:
+#        return 1
+#    else:
+#        return n * factorial(n-1)
+
 
 n = int(input("Please enter a number to factorialize: "))
-fact = factorial(n)
-print(fact)
+print(factorial(n))

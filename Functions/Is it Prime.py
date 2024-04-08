@@ -1,4 +1,5 @@
 def is_prime(n):
+
     if n <= 1:
         return False
     for i in range(2, n):
@@ -8,7 +9,15 @@ def is_prime(n):
             pass
     if n == 2:
         return True
-    
-n = int(input("Input a number: "))
+    return True
+
+type_ = False
+while not type_:
+    try:
+        n = int(input("Input a number: "))
+        type_ = True
+    except ValueError:
+        print("Please input an integer")
+
 prime_status = is_prime(n)
 print(f"Is {n} prime: {prime_status}")

@@ -1,35 +1,45 @@
-print("Percentage Calculator")
+#Percentage Calculator
 
-for i in range(20000):
-    type = int(input("Select the tool - (1) What is x% of y; (2) x is what percent of y ; (3) What is the percentage increase/decrease from x to y:"))
-    if type in [1, 2, 3]:
-        break
-    else:
-        print("Please input a value of 1, 2 or 3")
-    
-x = int(input("Enter the value of x: "))
-y = int(input("Enter the value of y: "))
-
-if type == 1:
+def x_prc_y(x, y): 
     z = x/100 * y
-    print( round(z, 4), "is", x, "% of", y)
-else:
-    pass
+    return round(z, 4)
 
-if type == 2:
+def x_is_what_prc_y(x, y):
     z = (x/y) * 100 
-    print (x, "is", round(z, 4), "% of", y)
-else:
-    pass
+    return round(z, 4)
 
-if type == 3:
+def prc_diff_x_y(x, y):
     z = (y-x) / x * 100
-    if x < y:
-     print(x, "is a", round(z, 4), "% decrease from", y)
-    elif y < x:
-     print(x, "is a", round(z, 4), "% increase from", y)
-    
-else:
-    pass
+    return z
 
-input("Press Enter to exit...")
+type_ = None
+while type_ not in [0, 1, 2]:
+    try:
+        type_ = int(input("Would you like to calculate:\n0. What is x% of y?\n1. x is what % of y?\n2. % increase/decrease between x & y?\nEnter 0, 1, or 2: "))
+    except ValueError:
+        print("Please input either 0, 1, or 2\n")
+
+correct_input = False
+while not correct_input:
+    try:
+        x = int(input("Enter the value for x: "))
+        correct_input = True
+    except ValueError:
+        print("Please input an integer")
+correct_input = False
+while not correct_input:
+    try:
+        y = int(input("Enter the value for y: "))
+        correct_input = True
+    except ValueError:
+        print("Please input an integer")
+
+
+if type_ == 0:
+    result = x_prc_y(x, y)
+elif type_ == 1:
+    result = x_is_what_prc_y(x, y)
+elif type_ == 2:
+    result = prc_diff_x_y(x, y)
+
+print(result)

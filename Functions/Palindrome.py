@@ -1,3 +1,5 @@
+#Palindorme Checker
+
 def is_palindrome(n):
     n = str(n).replace(' ', '')
     n = n.lower()
@@ -17,5 +19,4 @@ def is_palindrome(n):
         return True
 
 n = input("Enter a sentence: ")
-n = is_palindrome(n)
-print(n)
+print(is_palindrome(n))
